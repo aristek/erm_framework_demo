@@ -18,7 +18,7 @@
 	$activity = CurriculumActivityBase::factory($activityMode, $activityID);
 	
 	if ($activityMode == CurriculumActivityMode::MODE_INSTRUCTOR_SECTION) {
-		/** @var InstructorSuiteCourseSection */
+		/** @var InstructorSuiteCourseSection $section */
 		$section = $activity->getCourseSection();
 
 		$actName = $activity->getActivityName();
@@ -33,7 +33,7 @@
 		$doc->addRightHeading('Course', $section->getCourseName());
 	}
 
-	/** @var array.<ScoringKeyItem> */
+	/** @var ScoringKeyItem[] $items */
 	$items = $activity->getScoringKeyItems();
 
 	for ($a = 0; $a < count($items); $a++) {
