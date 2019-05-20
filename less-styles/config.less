@@ -1,0 +1,155 @@
+@import "config_colors2";
+
+@image-path: "../img"; // this is global variable wil be overrided by LESS compiler
+
+// Base height of the blocks and bars
+@base-height: 45px;
+@base-height-small: 28px;
+
+@nav-min-width: 60px;
+@nav-max-width: 250px;
+@nav-menu-margin: 40px;
+@nav-menu-width: 500px;
+@nav-menu-width2: 500px;
+@nav-top-height: 32px;
+@nav-mobile-top-height: 30px;
+@window-panel-height: 40px;
+@jumbotrone-height: 230px;
+
+// Input elements common properties
+@input-height: 30px; // inputm, select, button ...
+@input-height-small: @input-height / 1.25; // checkbox, radio button, color box
+@input-outer-height: @input-height + 2px;
+@input-radius: 0;
+
+@screen-max-width: 1024px;
+@screen-min-width: 769px;
+
+@_screen-max-width-next: 1025px;
+
+@media-desktop: ~"screen and (min-width: @{_screen-max-width-next})";
+@media-tablet: ~"screen and (max-width: @{screen-max-width}) and (min-width: @{screen-min-width})";
+@media-mobile: ~"screen and (max-width: @{screen-min-width})";
+
+@font-family: Helvetica, Arial, Tahoma, Verdana, sans-serif;
+
+@font-size-extra-small: 10px;
+@font-size-small: 12px;
+@font-size-middle: 15px;
+@font-size-large: 18px;
+@font-size-extra-large: 26px;
+@font-size: @font-size-middle;
+@font-size-icon: 16px;
+@font-size-icon-middle: 24px;
+@font-size-icon-large: 32px;
+
+@line-height: 18px;
+
+@indent-vertical: 1px;
+@indent-small: 5px;
+@indent-middle: 10px;
+@indent-large: 15px;
+
+@z-index-layout-bottom-panel: 3000;
+@z-index-swipe-layer1: 8900;
+@z-index-swipe-layer2: 9000;
+@z-index-dialog-box: 9500;
+@z-index-toolbar: 9700;
+@z-index-balloon: 10000;
+@z-index-process-box: 11000;
+@z-index-dropdown-menu: 12000;
+@z-index-alert-box: 13000;
+@z-index-hint: 14000;
+
+@import "images";
+
+.width-calc (@value) {
+	width: -webkit-calc(@value);
+	width: -moz-calc(@value);
+	width: -o-calc(@value);
+	width: -ms-calc(@value);
+	width: calc(@value);
+}
+
+.height-calc (@value) {
+	height: -webkit-calc(@value);
+	height: -moz-calc(@value);
+	height: -o-calc(@value);
+	height: -ms-calc(@value);
+	height: calc(@value);
+}
+
+.input-focus(@color: @color-base-lighter-bg) {
+	border: 1px solid @color !important;
+	outline: none !important;
+};
+
+.placeholder(@rules) {
+	&::-webkit-input-placeholder {
+		@rules();
+	}
+	&:-moz-placeholder {
+		@rules();
+	}
+	&::-moz-placeholder {
+		@rules();
+	}
+	&:-ms-input-placeholder {
+		@rules();
+	}
+}
+
+.reset-text(@color: inherit, @weight: normal, @style: normal, @decoration: none) {
+	font-weight: @weight;
+	font-style: @style;
+	text-decoration: @decoration;
+	white-space: normal;
+	color: @color;
+	line-height: @line-height;
+}
+
+.reset-align(@hor: left, @vert: baseline) {
+	text-align: @hor;
+	vertical-align: @vert;
+}
+
+.smart-width(@width) {
+	width: @width;
+
+	&.margin-sm-r, &.margin-sm-l {
+		width: ~"calc(@{width} - @{indent-small})";
+		min-width: ~"calc(@{width} - @{indent-small})";
+	}
+	&.margin-sm,
+	&.margin-sm-h,
+	&.margin-sm-r.margin-sm-l {
+		width: ~"calc(@{width} - @{indent-small} * 2)";
+		min-width: ~"calc(@{width} - @{indent-small} * 2)";
+	}
+
+	&.margin-dm-r, &.margin-md-l {
+		width: ~"calc(@{width} - @{indent-middle})";
+		min-width: ~"calc(@{width} - @{indent-middle})";
+	}
+	&.margin-md,
+	&.margin-md-h,
+	&.margin-md-r.margin-md-l {
+		width: ~"calc(@{width} - @{indent-middle} * 2)";
+		min-width: ~"calc(@{width} - @{indent-middle} * 2)";
+	}
+
+	&.margin-lg-r, &.margin-lg-l {
+		width: ~"calc(@{width} - @{indent-large})";
+		min-width: ~"calc(@{width} - @{indent-large})";
+	}
+	&.margin-lg,
+	&.margin-lg-h,
+	&.margin-lg-r.margin-lg-l {
+		width: ~"calc(@{width} - @{indent-large} * 2)";
+		min-width: ~"calc(@{width} - @{indent-large} * 2)";
+	}
+}
+
+.popup-shadow() {
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, .6);
+}
