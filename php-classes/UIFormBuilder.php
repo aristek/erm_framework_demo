@@ -1145,12 +1145,12 @@
 				->toHTML($db);
 
 			$saveInstr = FileDialogSettings::factory(FileDialogSettings::SAVE_FILE)
-				->addFileType('Lumen Touch Form Builder', '*.' . FBDocument::FILE_EXTENSION)
+				->addFileType('Form Builder', '*.' . FBDocument::FILE_EXTENSION)
 				->windowTitle('Save Document')
 				->getDialogInstructions();
 
 			$openInstr = FileDialogSettings::factory(FileDialogSettings::OPEN_FILE)
-				->addFileType('Lumen Touch Form Builder', '*.' . FBDocument::FILE_EXTENSION)
+				->addFileType('Form Builder', '*.' . FBDocument::FILE_EXTENSION)
 				->windowTitle('Open Document')
 				->getDialogInstructions();
 
